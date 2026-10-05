@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="foto-canto">
+        <img src="IMG_1994.jpeg" alt="Minha foto">
+    </div>
+
+    <div class="cartao-aplicacao">
+        <div class="cabecalho-aplicacao">
+            <h1>Minha Lista</h1>
+            <button class="botao-icone" onclick="mudarTema()"><i class="fa-solid fa-moon"></i></button>
+        </div>
+        <div class="caixa-entrada">
+            <input type="text" id="campo-tarefa" placeholder="Digite uma tarefa...">
+            <input type="date" id="campo-data">
+            <button class="botao-principal" onclick="adicionarTarefa()"><i class="fa-solid fa-plus"></i> Adicionar</button>
+        </div>
+        <div class="filtros">
+            <button onclick="filtrarTarefas('todas')">Todas</button>
+            <button onclick="filtrarTarefas('pendentes')">Pendentes</button>
+            <button onclick="filtrarTarefas('concluidas')">Concluídas</button>
+        </div>
+
+        <ul class="lista-tarefas" id="lista-tarefas"></ul>
+
+        <div class="contador">
+            <span id="contador-tarefas">0 tarefas | 0 concluídas</span>
+        </div>
+
+        <div class="rodape-aplicacao">
+            Minha lista de tarefas
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

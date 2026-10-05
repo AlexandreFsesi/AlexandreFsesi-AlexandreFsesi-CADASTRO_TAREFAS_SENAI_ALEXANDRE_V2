@@ -1,0 +1,242 @@
+:root {
+    --gradiente-fundo: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 100%);
+    --fundo-cartao: #ffffff;
+    --cor-texto: #3b245c;
+    --cor-primaria: #8b5cf6;
+    --cor-primaria-destaque: #7c3aed;
+    --cor-borda: #ddd6fe;
+    --cor-perigo: #ef4444;
+    --cor-concluido: #9b8aad;
+}
+
+body.modo-escuro {
+    --gradiente-fundo: linear-gradient(135deg, #170b24 0%, #2b1245 100%);
+    --fundo-cartao: #1b1026;
+    --cor-texto: #f3e8ff;
+    --cor-primaria: #a855f7;
+    --cor-primaria-destaque: #9333ea;
+    --cor-borda: #4c2670;
+    --cor-perigo: #f87171;
+    --cor-concluido: #8f7a9e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--gradiente-fundo);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cartao-aplicacao {
+    background: var(--fundo-cartao);
+    color: var(--cor-texto);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(60, 20, 90, 0.25);
+}
+
+.cabecalho-aplicacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cabecalho-aplicacao h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.botao-icone {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.caixa-entrada {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+input[type="text"] {
+    flex: 7;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    outline: none;
+    font-size: 0.95rem;
+    background: transparent;
+    color: var(--cor-texto);
+}
+
+input[type="text"]:focus {
+    border-color: var(--cor-primaria);
+}
+
+.botao-principal {
+    flex: 1.5;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.botao-principal:hover {
+    background: var(--cor-primaria-destaque);
+    transform: translateY(-2px);
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filtros button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background: var(--cor-borda);
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.filtros button:hover {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.lista-tarefas {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--cor-borda);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: aparecer 0.3s ease;
+}
+
+.item-tarefa.concluido span {
+    text-decoration: line-through;
+    color: var(--cor-concluido);
+}
+
+.acoes-tarefa {
+    display: flex;
+    gap: 8px;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--cor-texto);
+}
+
+.botao-acao.excluir:hover {
+    color: var(--cor-perigo);
+}
+
+.contador {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+}
+
+.rodape-aplicacao {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--cor-concluido);
+    text-align: center;
+}
+
+#campo-data {
+    flex: 1.8;
+    min-width: 0;
+    padding: 12px 10px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--cor-texto);
+}
+
+.item-tarefa small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: var(--cor-concluido);
+}
+
+.item-tarefa .prazo-hoje {
+    color: #eab308;
+    font-weight: bold;
+}
+
+.item-tarefa .prazo-vencido {
+    color: var(--cor-perigo);
+    font-weight: bold;
+}
+
+
+.foto-canto {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 4px;
+    background: var(--cor-primaria);
+    box-shadow: 0 5px 15px rgba(60, 20, 90, 0.3);
+}
+
+.foto-canto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
